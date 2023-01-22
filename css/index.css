@@ -1,0 +1,301 @@
+/* 放index页面的样式表 */
+.banner{
+    height: 500px;
+    background-color: #f5f5f5;
+}
+
+.banner .wrapper{
+    position: relative;
+    background-color: pink;
+    width:1240px ;
+    height: 500px; 
+}
+
+/* 侧导航 */
+.banner .aside{
+    position: absolute;
+    /* 子绝父相 */
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 500px;
+    background-color: #000;
+    opacity: 0.8;
+
+}
+
+.banner .aside li{
+    line-height: 50px;
+    height: 50px;
+    
+}
+
+.banner .aside li a{
+    position: relative;
+    display: block;
+    /* block的特性:宽度和父级一样,所以下方的宽就可以不用写 */
+    /* width: 250px; */
+    height: 50px;
+    /* 写宽高是为了之后hover能让整个li块变色 */
+    padding-left: 35px;
+    padding-right: 19px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.banner .aside li a:hover{
+    background-color: #27ba9b;
+}
+
+.aside li a span{
+    margin-left: 15px;
+    color: #fff;
+    font-size: 14px;
+}
+
+/* 利用伪元素添加li右边的箭头精灵图 */
+.banner .aside a::after{
+    position: absolute;
+    /* 这个伪元素它的父级是a */
+    right: 19px;
+    top: 19px;
+    content: '';
+    width: 8px;
+    height: 13px;
+    background-image: url(../images/sprites.png);
+    background-position: -80px -110px;
+
+}
+
+/* banner图轮换箭头*/
+.prev,
+.next{
+    /* 先把俩箭头共同的地方写在这一段 */
+    position: absolute;
+    top: 228px;
+    width: 45px;
+    height: 45px;
+    background-color: rgba(0,0,0,.2);
+    border-radius: 50%;
+    /* 把正方形盒子变成圆形 */
+    background-image: url(../images/sprites.png);
+    /* 放精灵图 */
+}
+
+.prev{
+left: 260px;
+/* 接续上面的position; top已经写过了,这里写距离banner左边的距离 */
+background-position: 13px -60px;
+/* 精灵图位子不准确的时候自己去google浏览器里调适 */
+}
+
+.next{
+right: 10px;
+background-position: -23px -60px;
+}
+
+/* banner图底下圆点 */
+.banner ol{
+    position: absolute;
+    bottom: 30px;
+    left: 680px;
+    /* width: 200px; */
+    /* 宽和背景粉色一样都是参考用 */
+    height: 10px;
+    /* background-color: pink; */
+}
+
+.banner ol li{
+    float: left;
+    /* li从竖排变横排就加浮动 */
+    margin-right: 15px;
+   width: 10px;
+   height: 10px;
+   background-color: rgba(255, 255, 255, .4); 
+   border-radius: 50%;
+   /* 让小方块变小圆点 */
+   cursor: pointer;
+   /* 让li悬停时出现像a的小手 */
+}
+
+/* 显示圆点的当前状态,即显示第几张图, "非hover!" */
+.banner ol .current{
+    background-color: #fff;
+}
+
+/* 新鲜好物 */
+/* goods wrapper 因为宽高有内容撑开,且内容可能会新增商品,暂时不写死宽高 */
+.goods .hd{
+height: 114px;
+/* background-color: pink; */
+line-height: 114px;
+}
+
+.goods .hd h2{
+    float: left;
+    font-size: 29px;
+    font-weight: 400;
+    height: 114px;
+    /* 原本没有写h2的高,inspect后发现高自动变成117px, 进而影响到下一排Li的位子(没法从版心左边起始线开始,反而是从品质靠谱后的位子才开始) 所以硬性规定h2的高为114,和其父级hd一样. 就不会影响下面li的排队*/
+}
+
+.goods .hd h2 span{
+    margin-left:33px ;
+    font-size:16px ;
+    color: #999 ;
+}
+
+.goods .hd a,
+.fresh .hd .check-all{
+    float: right;
+    color:#999 ;
+}
+/* 这段注释上下两段表示.goods .hd a,
+.fresh .hd .check-all 共同share一样的位子,字体和伪元素箭头精灵图,所以用逗号隔开,然后写相同的css内容 */
+.goods .hd a::after,
+.fresh .hd .check-all::after{
+    content: '';
+    display: inline-block;
+    width: 7px; 
+    height: 13px; 
+    /* background-color:green; */
+    margin-left: 13px;
+    vertical-align: middle;
+    background-image: url(../images/sprites.png);
+    background-position: 0 -109px;
+
+}
+
+.goods .bd li{
+    position: relative;
+    float: left;
+    width: 304px;
+    height: 405px;
+    background-color: #f0f9f4;
+    margin-right: 8px;
+    text-align: center;    
+    padding-bottom: 15px;
+}
+
+.goods .bd li:last-child{
+    margin-right: 0;
+}
+
+.goods .bd li img{
+    width: 304px;
+}
+
+.goods .bd li h3{
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 400;
+
+}
+
+.goods .bd li div,
+.fresh .bd .right div{
+    color:#9a2e1f ;
+    font-size: 17px;
+
+}
+
+.goods .bd li div span,
+.fresh .bd .right span{
+    font-size: 23px;  
+}
+
+/* 图片左上新品字号 */
+.goods .bd li b{
+    position: absolute;
+    left: 16px;
+    top: 18px;
+    width: 28px;
+    height: 51px;
+    /* 为什么字会垂直呈现:因为盒子设定宽很窄,高很长,所以字就自己掉下来了 */
+    border: 1px solid #27ba9b;
+    border-radius: 4px;
+    color:#27ba9b ;
+}
+
+/* 生鲜header */
+.fresh .hd{
+    height: 100px;
+    /* background-color: pink; */
+    line-height:100px ;
+
+}
+
+.fresh .hd h2{
+    float: left;   
+    font-size: 29px;
+    font-weight: 400;
+    height: 100px;}
+
+/* goods .hd a,.fresh .hd .check-all 共同share一样的位子,字体和伪元素箭头精灵图,所以用逗号隔开,然后写相同的css内容(写在上面的位子了,所以这里不再写 */
+
+.fresh .hd ul{
+    float: right;
+    margin-right:69px ;
+}
+
+.fresh .hd li{
+    float: left;
+    /* 整块ul靠左浮动,但是内容li要水平向左排所以又右浮动 */}
+
+.fresh .hd li a{
+    padding: 2px 7px;
+    margin-left: 6px;
+    
+}
+
+.fresh .hd li a:hover{
+    color: #fefbfc;
+    background-color: #27ba9b;
+}
+
+
+/* 生鲜body */
+/* 左半边 */
+.fresh .bd .left{
+    float: left; 
+    width: 240px;
+    height: 630px;
+    /* background-color: pink; */
+}
+
+/* 右半边:扣去左半边,其他的宽都给右边 */
+.fresh .bd .right{
+    float: left; 
+    width: 1000px;
+    height: 630px;
+    /* background-color: skyblue; */
+}
+.fresh .bd .right li{
+    float: left;
+    margin-left: 8px;
+    margin-bottom: 3px;
+    padding: 8px 30px;
+    width: 242px;
+    height: 304px;
+    /* background-color: green; */
+}
+
+
+.fresh .bd .right a img{
+    margin: 10 auto;
+    width: 184px;
+    height: 184px;
+}
+
+.fresh .bd .right a h3{
+    font-size: 16px;
+    font-weight: 400;
+
+}
+.fresh .bd .right div{
+    font-size: 17px;
+    color: #9a2e1f;
+}
+.fresh .bd .right span{
+    font-size: ;
+}

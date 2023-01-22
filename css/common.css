@@ -1,0 +1,264 @@
+/* 各个页面相同的样式表:头,尾部 */
+/* 版心 */
+.wrapper{
+    width: 1240px;
+    margin: 0 auto;
+}
+
+/* 快捷导航 */
+.shortcut{
+    height: 52px;
+    background-color: #333;
+}
+
+.shortcut .wrapper{
+    height: 52px;
+    /* background-color: pink; */
+}
+
+.shortcut .wrapper ul{
+    float:right;
+
+}
+
+.shortcut .wrapper li{
+    /* li 原本是块标签,所以原本7个li都各占一行, 变7行*/
+    /* 我猜改成行内块应该也可以,但老师让他们都左浮动也达到效果 */
+    /* display: inline-block; */
+    float: left;
+    line-height: 52px;
+}
+
+.shortcut .wrapper a{
+    padding: 0 16px;
+    border-right: 1px solid #666 ;
+    font-size: 14px;
+    color:#dcdcdc ;
+}
+
+.shortcut .wrapper a span{
+    display: inline-block;
+
+    margin-right: 8px;
+    /* 手机距离字太近,往手机右边加一个8像素的margin */
+    width: 11px;
+    height: 16px;
+    background-image: url(../images/sprites.png);
+    background-position: -160px -70px;
+    vertical-align: middle;
+    /* 手机图案放上去时有点偏上,垂直对齐把它往下拉一点 */
+}
+
+.shortcut .wrapper .mobile{
+    border-right: none;
+    /* 把最后一格手机版的右边border去掉 */
+}
+
+/* 头部 */
+.header{
+    margin: 30px auto;
+    height: 70px;
+    /* background-color: pink; */
+}
+
+.logo{
+    float: left;
+    width: 207px;
+    height: 70px;
+    /* background-color: pink; */
+}
+
+/* logo 搜寻引擎优化做法 */
+.logo h1{
+    width: 207px;
+    height: 70px;
+}
+
+.logo h1 a{
+    display: block;
+    width: 207px;
+    height: 70px;
+    background-image: url(../images/logo.png);
+    background-size: contain;
+    font-size: 0;
+    /* 虽然小兔鲜儿的logo图里已经有字了,但是h1里有公司名称会让搜索结果更优化,所以加上,然后再用css字型归0就好 */
+}
+.nav{
+    float: left;
+    margin-left: 40px;
+    /* 不给宽,靠导航内文字撑开 */
+    height: 70px;
+    /* background-color: orange; */
+
+}
+
+.nav li{
+    float: left;
+    margin-right: 50px;
+    line-height: 70px;
+    
+}
+.nav li a{
+/* 因为hover状态下的底部描边并没有紧贴字,而有7像素的距离 */
+padding-bottom: 7px;
+}
+
+.nav li a:hover{
+    color:#27ba9b ;
+    border-bottom: 1px solid #27ba9b;
+}
+
+.search{
+    float: left;
+    position: relative;
+    /* 子绝父相,放大镜永远在搜索框的左边 */
+    margin-top: 24px;
+    margin-left: 34px;
+    width: 172px;
+    height: 30px;
+    /* background-color: green; */
+    border-bottom: 2px solid #e7e7e7;
+}
+
+.search input{
+padding-left: 30px;
+width: 172px;
+height: 28px;
+/* 因为还要扣掉search栏底下的border2像素 */
+
+}
+
+.search input::placeholder{
+    font-size:14px ;
+    color: #ccc;
+}
+
+.search span{
+    /* display: inline-block; */
+     /* 子绝父相状态下,本来就具备行内的特性,所以可不用写display */
+    position: absolute;
+    /* 子绝父相,永远在搜索框的左边 */
+    left: 2px;
+    top: 0;
+    /* 放大镜在搜索框的位子,距离左2,距离上0 */
+    width: 18px;
+    height: 18px;
+    /* background-color: pink; */
+    background-image: url(../images/sprites.png);
+    background-position: -79px -69px;
+}
+
+.cart{
+    float: left;
+    position: relative;
+    margin-top: 28px;
+    margin-left:15px;
+    width: 24px;
+    height: 24px;
+    /* background-color: skyblue; */
+    background-image: url(../images/sprites.png);
+    background-position: -119px -69px;
+}
+
+.cart span{
+    /* display: block; */
+    /* 子绝父相状态下,本来就具备行内的特性,所以可不用写display */
+    position: absolute;
+    right: -13px;
+    top: -6px;
+    /* -13和-6是在google调适里试出来的,没法在设计稿里找,看起来差不多就行 */
+    text-align: center;
+    /* 水平居中 */
+    line-height: 15px;
+    /* 垂直居中 */
+    width: 20px;
+	height: 15px;
+	background-color: #e26237;
+	border-radius: 8px;
+    color: #fff;
+    font-size: 13px;
+}
+
+/* 底部版权footer */
+.footer{
+    height: 342px;
+    background-color: #333;
+}
+
+.footer .wrapper{
+    /* 底部的wrapper和上面不一样,所以重新设置底部的版心尺寸 */
+    width: 1393px;
+}
+
+.footer .top{
+    padding-top: 60px;
+    padding-left: 135px;
+ 
+    height: 175px; 
+    border-bottom: 3px solid #434343;
+    color: #fff;
+    font-size: 28px;
+}
+
+.footer .top li{
+    position: relative;
+    float: left;
+    margin-right: 300px;
+    width: 195px;
+    /* 取3个li中最宽那个,免得有的太宽装不下 */
+    height: 58px;
+    /* background-color: pink; */
+    line-height: 58px;
+
+}
+
+.footer .top li:last-child{
+    margin-right: 0;
+    /* 最后一个li右边没有间距 */
+}
+
+.footer .top li::before{
+    /* 用css创造伪元素 */
+    
+    content: '';
+    position: absolute;
+    /* display: inline-block; */
+    /* 因为子绝父相了,display就可以不要 */
+    width: 58px;
+    height: 58px;
+    background-image: url(../images/sprites.png);
+    /* 但这段选中全部的li,导致所有的精灵图都一样,要在下方选中第二和第三个li,并改变他们的精灵图 */
+    vertical-align: middle;
+}
+
+.footer .top li span{
+    margin-left: 77px;
+    font-size:28px ;
+    color: #fff;
+}
+
+/* 来选第二个li,并又在它之前添加伪元素 */
+.footer .top li:nth-child(2)::before{
+/* 已经选中精灵图了所以不用再写,只需要改位置 */
+background-position: -64px 0;
+}
+
+.footer .top li:nth-child(3)::before{
+    background-position: -130px 0;
+}
+
+.footer .bottom {
+    padding-top: 40px;
+    text-align: center ;
+}
+
+.footer .bottom a{
+    color: #999;
+    font-size: 14px;
+}
+
+.footer .bottom p{
+    margin-bottom: 20px;
+    color: #999;
+    font-size: 14px;
+}
